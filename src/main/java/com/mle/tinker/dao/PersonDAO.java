@@ -13,8 +13,8 @@ import java.util.List;
 @RegisterMapper(PersonMapper.class)
 public interface PersonDAO {
 
-    @SqlQuery("select * from PERSON")
-    List<Person> getAll();
+    @SqlQuery("select * from PERSON where NAME like  concat('%',:name,'%')")
+    List<Person> getAll(@Bind("name") String name);
 
     @SqlQuery("select * from PERSON where ID = :id")
     Person findById(@Bind("id") int id);

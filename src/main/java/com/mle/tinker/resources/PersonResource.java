@@ -6,11 +6,15 @@ package com.mle.tinker.resources;
 
 import com.mle.tinker.dao.PersonDAO;
 import com.mle.tinker.representaions.Person;
-
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+import org.skife.jdbi.v2.DBI;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 @Path("/person")
 @Consumes({MediaType.APPLICATION_JSON})
@@ -24,9 +28,15 @@ public class PersonResource {
     }
 
     @GET
-    public List<Person> getAll(){
-        return personDAO.getAll();
+    @Path("/query/{name}")
+    public Response GetAll(@PathParam("name") String name)
+    {
+
+        return Response
+                .ok(personDAO.getAll(name))
+                .build();
     }
+
 
     @GET
     @Path("/{id}")

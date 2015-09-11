@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dwbook-phonebook.iml" filepath="$PROJECT_DIR$/dwbook-phonebook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mle-tinker.iml" filepath="$PROJECT_DIR$/mle-tinker.iml" />
     </modules>
   </component>
 </project>
-
